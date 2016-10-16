@@ -6,5 +6,5 @@ To reproduce the bug:
 1. Open the unity project
 2. start the "startscene"
 3. Either attach the debugger at the start and walk trough the NativePlugin.cs or run the example and attach the debugger after
-it and press the pause buggon
+it and press the pause button
 4. Unity and visual studio will crash
