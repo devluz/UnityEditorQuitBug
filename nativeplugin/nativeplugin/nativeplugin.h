@@ -13,14 +13,8 @@
 
 extern "C"
 {
-	NATIVEPLUGIN_API int normalCall(void);
-
-
-	NATIVEPLUGIN_API void saveCallback(void(*callback)());
-	NATIVEPLUGIN_API void callCallback();
-
 	NATIVEPLUGIN_API void saveCallbackParallel(void(*callback)());
-	NATIVEPLUGIN_API void callCallbackParallel();
+	NATIVEPLUGIN_API void loopThread(void);
 
 	NATIVEPLUGIN_API void cleanup();
 }

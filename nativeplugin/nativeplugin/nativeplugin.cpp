@@ -7,23 +7,7 @@
 
 
 
-// This is an example of an exported function.
-NATIVEPLUGIN_API int normalCall(void)
-{
-	return 42;
-}
-
-void (*ptrCallback)();
-
-NATIVEPLUGIN_API void saveCallback(void(*callback)())
-{
-	ptrCallback = callback;
-}
-NATIVEPLUGIN_API void callCallback()
-{
-	ptrCallback();
-}
-
+HANDLE threadHandle = NULL;
 
 void(*ptrCallbackParallel)();
 
@@ -32,29 +16,33 @@ NATIVEPLUGIN_API void saveCallbackParallel(void(*callbackParallel)())
 	ptrCallbackParallel = callbackParallel;
 }
 
-HANDLE threadHandle = NULL;
-DWORD WINAPI ThreadStart(LPVOID lpParam)
+DWORD WINAPI ThreadStartLoop(LPVOID lpParam)
 {
 	ptrCallbackParallel();
+
+	//loop and sleep.
+	while (true)
+	{
+		Sleep(100);
+	}
 	return 0;
 }
-NATIVEPLUGIN_API void callCallbackParallel()
-{
-	//ptrCallbackParallel();
 
+NATIVEPLUGIN_API void loopThread(void)
+{
 	threadHandle = CreateThread(
 		NULL,                   // default security attributes
 		0,                      // use default stack size  
-		ThreadStart,       // thread function name
+		ThreadStartLoop,       // thread function name
 		nullptr,          // argument to thread function 
 		0,                      // use default creation flags 
 		nullptr);
 }
-
 NATIVEPLUGIN_API void cleanup()
 {
 	if (threadHandle != NULL)
 	{
+		TerminateThread(threadHandle, 0);
 		CloseHandle(threadHandle);
 		threadHandle = NULL;
 	}

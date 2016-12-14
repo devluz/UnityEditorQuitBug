@@ -94,7 +94,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy $(TargetPath) $(ProjectDir)..\..\UnityDebuggingBug\Assets\Plugins /Y</Command>
+      <Command>xcopy $(TargetPath) $(ProjectDir)..\..\UnityEditorQuitBug\Assets\Plugins /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -110,7 +110,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy $(TargetPath) $(ProjectDir)..\..\UnityDebuggingBug\Assets\Plugins /Y</Command>
+      <Command>xcopy $(TargetPath) $(ProjectDir)..\..\UnityEditorQuitBug\Assets\Plugins /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
