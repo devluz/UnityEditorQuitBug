@@ -1,4 +1,4 @@
-# UnityDebuggerBug
+# UnityEditorQuitBug
 Demonstration of a bug in Unity. Calling callbacks from native threads into C# and then keeping that thread running in idle will freeze Unity on quit.
 
 To reproduce the bug:
@@ -9,4 +9,4 @@ To reproduce the bug:
 4. Quit Unity Editor (or stop the game first, then quit)
 
 The editor will get stuck and probably wait for ever for the native thread to quit.
-The bug seems to be very similar to https://github.com/devluz/UnityEditorQuitBug
+The bug seems to be very similar to https://github.com/devluz/UnityDebuggerBug
